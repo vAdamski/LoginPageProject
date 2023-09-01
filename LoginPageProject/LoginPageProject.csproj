@@ -13,4 +13,15 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MailKit" Version="4.1.0" />
+      <PackageReference Include="MediatR" Version="12.1.1" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LoginPageProject.Application\LoginPageProject.Application.csproj" />
+      <ProjectReference Include="..\LoginPageProject.Persistence\LoginPageProject.Persistence.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginPageProject", "LoginPageProject\LoginPageProject.csproj", "{5C077466-15CD-4713-8F77-306A7198FC06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginPageProject.Persistance", "LoginPageProject.Persistance\LoginPageProject.Persistance.csproj", "{81BFBC13-88FB-401B-B4D6-985B7B85524A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginPageProject.Persistence", "LoginPageProject.Persistence\LoginPageProject.Persistence.csproj", "{81BFBC13-88FB-401B-B4D6-985B7B85524A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginPageProject.Domain", "LoginPageProject.Domain\LoginPageProject.Domain.csproj", "{507EEBD8-5526-4312-9E22-04FC0549F417}"
 EndProject

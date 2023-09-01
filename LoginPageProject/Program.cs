@@ -1,7 +1,15 @@
+using LoginPageProject.Application;
+using LoginPageProject.Domain.Common;
+using LoginPageProject.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
+// DI
+builder.Services.AddApplication();
+builder.Services.AddPersistence();
 
 var app = builder.Build();
 
@@ -18,10 +26,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=UserAuthentication}/{action=Login}/{id?}");
 
 app.Run();

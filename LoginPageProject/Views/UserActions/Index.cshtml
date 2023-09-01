@@ -1,0 +1,35 @@
+@model LoginPageProject.Shared.ViewModels.UserActionInfosVm
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>User Action</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Time</th>
+                </tr>
+                
+                </thead>
+                <tbody>
+                @if (Model.UserActionInfos.Any())
+                {
+                    @foreach(var userActionInfo in Model.UserActionInfos)
+                    {
+                        <tr>
+                            <td>@userActionInfo.Action</td>
+                            <td>@userActionInfo.ActionDate</td>
+                        </tr>
+                    }
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

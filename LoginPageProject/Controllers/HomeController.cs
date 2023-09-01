@@ -4,7 +4,7 @@ using LoginPageProject.Models;
 
 namespace LoginPageProject.Controllers;
 
-public class HomeController : Controller
+public class HomeController : BaseController
 {
     private readonly ILogger<HomeController> _logger;
 
@@ -14,11 +14,6 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
     {
         return View();
     }

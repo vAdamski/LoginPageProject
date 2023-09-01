@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using LoginPageProject.Application.Common.Interfaces
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IPasswordVerifierService PasswordVerifierService
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -22,9 +26,32 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
+                    
+                    
+                    @if (!string.IsNullOrEmpty(User.Identity.Name))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="UserActions" asp-action="Index">User Actions</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" href="/UserAuthentication/ChangePassword">ChangePassword</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" href="/UserAuthentication/Logout">Logout</a>
+                        </li>
+                        @if (await PasswordVerifierService.IsCurrentPasswordOutdated())
+                        {
+                            <li>
+                                <a class="nav-link text-warning">Hasło przeterminowane! Zalecana zmiana hasła!</a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="nav-link text-dark" href="/UserAuthentication/Login">Login</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -38,7 +65,7 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2023 - LoginPageProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2023 - LoginPageProject - <a asp-area="" asp-controller="Home" asp-action="Index">Privacy</a>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
